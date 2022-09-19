@@ -11,16 +11,27 @@ class Node {
  *  remove from the front or add to the back. */
 
 class Queue {
-  constructor() {
+  constructor(vals = []) {
     this.first = null;
     this.last = null;
     this.size = 0;
+
+    for (let val of vals) this.enqueue(val);
   }
 
   /** enqueue(val): add new value to end of the queue. Returns undefined. */
 
   enqueue(val) {
+    let newNode = new Node(val);
 
+    if (this.first === null) {
+      this.first = newNode;
+    }
+    if (this.last !== null) {
+      this.last.next = newNode;
+    }
+    this.last = newNode;
+    this.size ++;
   }
 
   /** dequeue(): remove the node from the start of the queue
