@@ -38,7 +38,21 @@ class Stack {
    * and return its value. Should throw an error if the stack is empty. */
 
   pop() {
-
+    if (this.size === 0) {
+      throw TypeError("empty");
+    }
+    else {
+      let currentNode = this.first;
+      let lastNode = this.last
+      for(let i = 1; i < this.size - 1; i++) {
+        currentNode = currentNode.next;
+      }
+      this.last = currentNode;
+      this.last.next = null;
+      this.size --;
+      
+      return lastNode;
+    }
   }
 
   /** peek(): return the value of the first node in the stack. */
