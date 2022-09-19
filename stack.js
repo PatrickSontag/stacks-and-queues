@@ -50,7 +50,7 @@ class Stack {
       this.last = currentNode;
       this.last.next = null;
       this.size --;
-      
+
       return lastNode;
     }
   }
@@ -58,13 +58,19 @@ class Stack {
   /** peek(): return the value of the first node in the stack. */
 
   peek() {
-
+    if (this.size !== 0) {
+      return this.last.val;
+    }
+    return "empty";
   }
 
   /** isEmpty(): return true if the stack is empty, otherwise false */
 
   isEmpty() {
-
+    if (this.size === 0) {
+      return true;
+    }
+    return false;
   }
 }
 
